@@ -1,26 +1,41 @@
 <?php
-require_once('classes/DBConnection.php');
-require_once('initialize.php');
+session_start();
+
+$host = "localhost";
+$username = "root";
+$password = "";
+$database = "light_water_db";
+
+$conn = mysqli_connect($host, $username, $password, $database);
+
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reset'])) {
-    $new_password = $_POST['password'];
-    $confirm_password = $_POST['confirm_password'];
-    $reset_token = $_GET['token'];
+    if (isset($_GET['token'])) {
+        $reset_token = $_GET['token'];
 
+        $new_password = $_POST['password'];
+        $confirm_password = $_POST['confirm_password'];
 
-    if ($new_password !== $confirm_password) {
-        echo "Passwords do not match.";
-        exit();
-    }
+        if ($new_password !== $confirm_password) {
+            echo "Passwords do not match.";
+            exit();
+        }
+        $encrypted_password = md5($new_password);
+        $update_query = mysqli_query($conn, "UPDATE clients SET password='$encrypted_password', reset_token=NULL WHERE reset_token='$reset_token'");
 
-    $update_query = mysqli_query($connection, "UPDATE student SET password='$new_password', reset_token=NULL WHERE reset_token='$reset_token'");
-    
-    if ($update_query) {
-        echo "<script>alert('Successfully');</script>";
-        echo "Password reset successfully. You can now <a href='index.php'>login</a> with your new password.";
+        if ($update_query) {
+            echo "<script>alert('Successfully');</script>";
+            echo "Password reset successfully. You can now <'location:./'>login</a> with your new password.";
+        } else {
+            echo "<script>alert('Failed');</script>";
+            echo "Error updating password. Please try again.";
+        }
     } else {
-        echo "<script>alert('Failed');</script>";
-        echo "Error updating password. Please try again.";
+        echo "Token not provided.";
+        exit();
     }
 }
 ?>
@@ -31,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reset'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
     <title>Password Reset</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <style>
         body {
             background-color: #e7e0e0;
