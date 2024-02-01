@@ -51,7 +51,7 @@ while ($row = $result->fetch_assoc()) {
 ?>
 
 <!-- Table to display sales data -->
-<h2>Sales Data</h2>
+<!-- <h2>Sales Data</h2>
 <table border="1">
     <thead>
         <tr>
@@ -75,7 +75,7 @@ while ($row = $result->fetch_assoc()) {
             </tr>
         <?php endwhile; ?>
     </tbody>
-</table>
+</table> -->
 
 <!-- Daily Sales Line Chart -->
 <h2>Daily Sales</h2>

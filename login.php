@@ -37,7 +37,7 @@
                 
                 <div class="form-group d-flex justify-content-between">
                     <button type="button" id="create_account" class="btn btn-link">Create Account</button>
-                    <a href="forgot_password.php">Forgot Password?</a>
+                    <a href="phpmailer/forgot_password.php">Forgot Password?</a>
                     <button type="submit" class="btn btn-primary btn-flat">Login</button>
                 </div>
             </form>
@@ -66,7 +66,7 @@
 
                 $.ajax({
                     type: 'POST',
-                    url: 'forgot_password.php',
+                    url: 'reset_password.php',
                     data: $('form').serialize(),
                     success: function (response) {
                         $('p').text(response);

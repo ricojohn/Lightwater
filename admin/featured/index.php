@@ -25,6 +25,7 @@
                     <th>Date Created</th>
                     <th>Jar</th>
                     <th>Description</th>
+     
                 </tr>
                 </thead>
                 <tbody>

@@ -29,7 +29,7 @@ if (isset($_POST['forgot_password'])) {
         $reset_token = bin2hex(random_bytes(32));
         $update_query = mysqli_query($conn, "UPDATE clients SET reset_token='$reset_token' WHERE email='$email'");
 
-        $reset_link = "http://localhost/lighwater/reset_password.php?token=" . $reset_token; 
+        $reset_link = "http://localhost/Lightwater/reset_password.php?token=" . $reset_token; 
 
         $message = '<div>
             <p><b>Hello!</b></p>
@@ -119,7 +119,7 @@ if (isset($_POST['forgot_password'])) {
                     url: 'reset_password.php',
                     data: $('form').serialize(),
                     success: function (response) {
-                        $('p').text(response);
+                        $('p').text('Succesfuly Enter' ,response);
                     },
                     error: function () {
                         $('p').text('Error sending request');
