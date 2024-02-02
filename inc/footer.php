@@ -75,22 +75,20 @@
           <h5 class="text-uppercase mb-4">About company</h5>
 
           <p>
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-            voluptatum deleniti atque corrupti.
+            Our water goes through a rigorous purification process, utilizing state-of-the-art filtration technology to remove impurities and contaminants.
           </p>
 
           <p>
-            Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
-            molestias.
+            With our strategically located refilling stations, we aim to make access to clean water convenient for everyone in the community.
           </p>
 
           <div class="mt-4">
             <!-- Facebook -->
-            <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-facebook-f"></i></a>
-            <!-- Twitter -->
-            <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/litewaterlancaster" type="button" class="btn btn-floating btn-light btn-lg" target="_blank" ><i class="fab fa-facebook-f"></i></a>
+            <!-- youtube -->
+            <a href="https://www.facebook.com/litewaterlancaster" type="button" class="btn btn-floating btn-light btn-lg" target="_blank"><i class="fab fa-youtube"></i></a>
             <!-- Google + -->
-            <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-google-plus-g"></i></a>
+            <a href="" type="button" class="btn btn-floating btn-light btn-lg" target="_blank"><i class="fab fa-google-plus-g"></i></a>
             <!-- Linkedin -->
           </div>
         </div>
@@ -106,7 +104,7 @@
               <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Warsaw, 00-967, Poland</span>
             </li>
             <li class="mb-3">
-              <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">contact@example.com</span>
+              <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">lightwater106@gmail.com</span>
             </li>
             <li class="mb-3">
               <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ 48 234 567 88</span>
@@ -122,16 +120,12 @@
           <table class="table text-center text-white">
             <tbody class="fw-normal">
               <tr>
-                <td>Mon - Thu:</td>
-                <td>8am - 9pm</td>
-              </tr>
-              <tr>
-                <td>Fri - Sat:</td>
-                <td>8am - 1am</td>
+                <td>Mon - Sat:</td>
+                <td>8am - 6pm</td>
               </tr>
               <tr>
                 <td>Sunday:</td>
-                <td>9am - 10pm</td>
+                <td>9am - 5pm</td>
               </tr>
             </tbody>
           </table>
