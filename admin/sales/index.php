@@ -59,39 +59,38 @@ $date_end = isset($_GET['date_end']) ? $_GET['date_end'] :  date("Y-m-d") ;
                 </thead>
                 <tbody>
                 <?php
-                    $i = 1;
+                    $i = 0;
                     $totalQuantity = 0;
                     $totalAmount = 0;
-
-                    $query = "SELECT * FROM `sales` s JOIN orders o ON s.order_id = o.id WHERE date(s.date_created) BETWEEN '{$date_start}' AND '{$date_end}' AND o.paid = 1 ORDER BY UNIX_TIMESTAMP(s.date_created) DESC";
-                    $qry = $conn->query($query);
-                    while ($row = $qry->fetch_assoc()):
-                        $olist = $conn->query("SELECT ol.*,p.title,concat(c.firstname,' ',c.lastname) as name,c.email,o.date_created FROM order_list ol inner join orders o on o.id = ol.order_id inner join `products` p on p.id = ol.product_id inner join clients c on c.id = o.client_id  where ol.order_id = '{$row['order_id']}' ");
-                        while ($roww = $olist->fetch_assoc()):
-                            $totalQuantity += $roww['quantity'];
-                            $totalAmount += $roww['quantity'] * $roww['price'];
-                    ?>
-                            <tr>
-                                <td class="text-center"><?php echo $i++ ?></td>
-                                <td><?php echo $row['date_created'] ?></td>
-
-                                <td>
-                                    <p class="m-0"><?php echo $roww['name'] ?></p>
-                                    <p class="m-0"><small>Email: <?php echo $roww['email'] ?></small></p>
-                                </td>
-                                <td>
-                                    <p class="m-0"><?php echo $roww['title'] ?></p>
-                                </td>
-                                <td class="text-center"><?php echo $roww['quantity'] ?></td>
-                                <td class="text-right"><?php echo number_format($roww['quantity'] * $roww['price']) ?></td>
-                            </tr>
-                        <?php endwhile; ?>
-                    <?php endwhile; ?>
-                    <?php if ($qry->num_rows <= 0): ?>
-                        <tr>
-                            <td class="text-center" colspan="6">No Data...</td>
-                        </tr>
-                    <?php endif; ?>
+                    $query = "SELECT *
+                    FROM orders
+                    INNER JOIN order_list ON orders.id = order_list.order_id
+                    INNER JOIN sales ON orders.id = sales.order_id 
+                    INNER JOIN clients ON orders.client_id = clients.id
+                    INNER JOIN products ON order_list.product_id = products.id
+                    WHERE orders.paid = '1' AND orders.date_created BETWEEN '$date_start' AND '$date_end'";
+                    $run = $conn->query($query);
+                    while ($row = $run->fetch_assoc()){
+                        $totalQuantity += $row['quantity'];
+                        $totalAmount += $row['quantity'] * $row['price'];
+                ?>
+                    <tr>
+                        <td class="text-center"><?php echo $i++ ?></td>
+                        <td><?php echo $row['date_created'] ?></td>
+                        <td>
+                            <p class="m-0"><?php echo $row['firstname'].' '.$row['lastname'] ?></p>
+                            <p class="m-0"><small>Email: <?php echo $row['email'] ?></small></p>
+                        </td>
+                        <td>
+                            <p class="m-0"><?php echo $row['title'] ?></p>
+                        </td>
+                        <td class="text-center"><?php echo $row['quantity'] ?></td>
+                        <td class="text-right"><?php echo number_format($row['quantity'] * $row['price']) ?></td>
+                    </tr>
+                <?php
+                    }
+                
+                ?>
                 </tbody>
                 <tfoot>
                     <tr>
