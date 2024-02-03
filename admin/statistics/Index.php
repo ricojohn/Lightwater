@@ -2,7 +2,7 @@
 // Assuming $conn is your database connection object
 
 // Fetch sales data
-$querySales = "SELECT id, order_id, delivery, total_amount, date_created FROM sales WHERE 1";
+$querySales = "SELECT * FROM sales INNER JOIN orders ON sales.order_id = orders.id WHERE paid = '1'";
 $salesResult = $conn->query($querySales);
 
 // Check if the query was successful
@@ -51,7 +51,7 @@ while ($row = $result->fetch_assoc()) {
 ?>
 
 <!-- Table to display sales data -->
-<!-- <h2>Sales Data</h2>
+<h2>Sales Data</h2>
 <table border="1">
     <thead>
         <tr>
@@ -75,7 +75,7 @@ while ($row = $result->fetch_assoc()) {
             </tr>
         <?php endwhile; ?>
     </tbody>
-</table> -->
+</table>
 
 <!-- Daily Sales Line Chart -->
 <h2>Daily Sales</h2>

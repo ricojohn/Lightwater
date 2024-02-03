@@ -5,7 +5,7 @@
 </style>
 <?php 
 $date_start = isset($_GET['date_start']) ? $_GET['date_start'] :  date("Y-m-d",strtotime(date("Y-m-d")." -7 days")) ;
-$date_end = isset($_GET['date_end']) ? $_GET['date_end'] :  date("Y-m-d") ;
+$date_end = isset($_GET['date_end']) ? $_GET['date_end'] :  date("Y-m-d",strtotime(date("Y-m-d")." +1 days")) ;
 ?>
 <div class="card card-primary card-outline">
     <div class="card-header">
@@ -25,9 +25,12 @@ $date_end = isset($_GET['date_end']) ? $_GET['date_end'] :  date("Y-m-d") ;
                 <div class="form-group col-md-1">
                     <button class="btn btn-flat btn-block btn-primary btn-sm"><i class="fa fa-filter"></i> Filter</button>
                 </div>
-                <div class="form-group col-md-1">
+                <!-- <div class="form-group col-md-1">
                     <button class="btn btn-flat btn-block btn-success btn-sm" type="button" id="printBTN"><i class="fa fa-print"></i> Print</button>
                 </div>
+                <div class="form-group col-md-1">
+                    <button class="btn btn-flat btn-block btn-warning btn-sm" type="button" ><i class="fa fa-print"></i> Sales Invoice</button>
+                </div> -->
             </div>
         </form>
         <hr>
@@ -41,6 +44,7 @@ $date_end = isset($_GET['date_end']) ? $_GET['date_end'] :  date("Y-m-d") ;
             <table class="table table-bordered">
                 <colgroup>
                     <col width="5">
+                    <col width="5">
                     <col width="10">
                     <col width="10">
                     <col width="10">
@@ -49,6 +53,7 @@ $date_end = isset($_GET['date_end']) ? $_GET['date_end'] :  date("Y-m-d") ;
                 </colgroup>
                 <thead>
                     <tr>
+                        <th>Invoice</th>
                         <th>#</th>
                         <th>Date Time</th>
                         <th>Client</th>
@@ -75,6 +80,11 @@ $date_end = isset($_GET['date_end']) ? $_GET['date_end'] :  date("Y-m-d") ;
                         $totalAmount += $row['quantity'] * $row['price'];
                 ?>
                     <tr>
+                        <td class="text-center">
+                            <div>
+                                <a href='http://localhost/Lightwater/admin/sales/print.php?orderid=<?php echo $row['order_id'] ?>' class="btn btn-warning btn-sm mt-2" type="button" ><i class="fa fa-print"></i> Sales Invoice</a>
+                            </div>
+                        </td>
                         <td class="text-center"><?php echo $i++ ?></td>
                         <td><?php echo $row['date_created'] ?></td>
                         <td>
@@ -94,6 +104,7 @@ $date_end = isset($_GET['date_end']) ? $_GET['date_end'] :  date("Y-m-d") ;
                 </tbody>
                 <tfoot>
                     <tr>
+                        <th></th>
                         <th></th>
                         <th></th>
                         <th></th>

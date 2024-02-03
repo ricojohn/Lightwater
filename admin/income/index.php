@@ -130,6 +130,14 @@ $totalIncome = $totalSales - $totalExpenses;
             var ns = $('noscript').clone().html();
             start_loader()
             rep.prepend(ns)
+            var nw = window.document.open('','_blank','width=900,height=600')
+                nw.document.write(rep.html())
+                nw.document.close()
+                nw.print()
+                setTimeout(function(){
+                    nw.close()
+                    end_loader()
+                },500)
         })
     })
 </script>
