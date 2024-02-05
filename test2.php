@@ -3,14 +3,11 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero d-flex align-items-center">
     <div class="container">
-      <div class="row gy-4 d-flex justify-content-between">
-        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+      <div class="row gy-4 d-flex justify-content-center">
+        <div class="col-lg-6 order-2 order-lg-2 d-flex flex-column justify-content-center text-center">
           <h2 data-aos="fade-up">Your Lightning Fast Delivery Partner</h2>
           <p data-aos="fade-up" data-aos-delay="100">Facere distinctio molestiae nisi fugit tenetur repellat non praesentium nesciunt optio quis sit odio nemo quisquam. eius quos reiciendis eum vel eum voluptatem eum maiores eaque id optio ullam occaecati odio est possimus vel reprehenderit</p>
-
-         
-
-          <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="row gy-4 justify-content-center" data-aos="fade-up" data-aos-delay="400">
 
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
@@ -25,13 +22,12 @@
                 <p>Workers</p>
               </div>
             </div><!-- End Stats Item -->
-
           </div>
         </div>
 
-        <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-          <img src="assets_test/img/hero-img.svg" class="img-fluid mb-3 mb-lg-0" alt="">
-        </div>
+        <!-- <div class="col-lg-5 order-1 order-lg-1 hero-img" data-aos="zoom-out"> -->
+          <!-- <img src="assets_test/img/hero-img.svg" class="img-fluid mb-3 mb-lg-0" alt=""> -->
+        <!-- </div> -->
 
       </div>
     </div>
@@ -149,11 +145,11 @@
       <div class="container" data-aos="fade-up">
         
         <div class="row gy-4 ">
-          <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
-            <img src="assets_test/img/about.jpg" class="img-fluid" alt="">
+          <div class="col-lg-6 order-2 order-lg-2 position-relative align-self-start order-lg-last order-first" style="margin: auto;">
+            <img src="assets_test/img/about_us.jpg" class="img-fluid" alt="">
             <!-- <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a> -->
           </div>
-          <div class="col-lg-6 content order-last  order-lg-first">
+          <div class="col-lg-6 content order-1 order-lg-1">
             <h3>About Us</h3>
             <p>
             Welcome to Light water , your trusted partner in providing high-quality and refreshing water for your hydration needs. With a commitment to excellence and customer satisfaction, we have been proudly serving the community since 2020.
@@ -380,7 +376,6 @@
 
       </div>
     </section><!-- End Frequently Asked Questions Section -->
-
   </main><!-- End #main -->
 
   

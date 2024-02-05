@@ -27,7 +27,8 @@
   <link href="assets_test/vendor/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets_test/css/main.css?v2.1" rel="stylesheet">
+  <link href="assets_test/css/main.css?v2.4" rel="stylesheet">
+  
 
   <!-- =======================================================
   * Template Name: Logis
@@ -44,7 +45,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="index.php" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="uploads/received_347587078009688.jpeg" alt="">
         <h1>Light Water</h1>
@@ -91,40 +92,80 @@
           <?php if($count_cats > 3): ?>
             <li><a href="./?p=view_categories">All Categories</a></li>
           <?php endif; ?>
-          <li><a href="#about">About</a></li>
-        </ul>
-      </nav><!-- .navbar -->
-      <div class="navbar">
-          <ul style="list-style-type: none; display: flex; align-items: center; margin: 0;"  >
-            <li style="margin-right: 20px;">
-              <?php if(!isset($_SESSION['userdata']['id'])): ?>
-              <a class="get-a-quote" id="login-btn" type="button" >Login</a>
-              <?php else: ?>
-              <a class="text-light mr-2 nav-link" href="./?p=cart">
-              <i class="bi-cart-fill me-1"></i>
-              Cart
-              <span class="badge bg-info text-white ms-1 rounded-pill" id="cart-count">
-              <?php 
-                if(isset($_SESSION['userdata']['id'])):
-                  $count = $conn->query("SELECT SUM(quantity) as items from `cart` where client_id =".$_settings->userdata('id'))->fetch_assoc()['items'];
-                  echo ($count > 0 ? $count : 0);
-                else:
-                  echo "0";
-                endif;
-              ?>
-              </span>
-              </a>
+          <li><a href="#about" >About</a></li>
+           <li>
+              <div>
+                <?php if(!isset($_SESSION['userdata']['id'])): ?>
+                <a class="get-a-quote" id="login-btn" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a>
+                <?php else: ?>
+                <a class="text-light nav-link" href="./?p=cart">
+                <i class="bi-cart-fill me-1"></i>
+                Cart
+                <span class="badge bg-info text-white ms-1 rounded-pill" id="cart-count">
+                <?php 
+                  if(isset($_SESSION['userdata']['id'])):
+                    $count = $conn->query("SELECT SUM(quantity) as items from `cart` where client_id =".$_settings->userdata('id'))->fetch_assoc()['items'];
+                    echo ($count > 0 ? $count : 0);
+                  else:
+                    echo "0";
+                  endif;
+                ?>
+                </span>
+                </a>
+              </div>
             </li> 
             <li>
               <a href="./?p=my_account" class="text-light  nav-link"><b> Hi, <?php echo $_settings->userdata('firstname')?>!</b></a>
             </li>
             <li>
-              <a href="logout.php" class="get-a-quote2" id="login-btn" type="button" >Logout</a>
+              <a href="logout.php" class="get-a-quote2" type="button" >Logout</a>
             </li>
-          </ul>
-          <?php endif; ?>
-      </div>
-
+            <?php endif; ?>
+        </ul>
+      </nav><!-- .navbar -->
     </div>
   </header><!-- End Header -->
   <!-- End Header -->
+  <!-- Modal -->
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="" id="login-form">
+                <div class="form-group">
+                    <label for="email" class="control-label">Email</label>
+                    <input type="email" class="form-control form" name="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="control-label">Password</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control form" name="password" id="password" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text password-toggle" aria-hidden="true" aria-label="Toggle Password Visibility">
+                                <i class="fa fa-eye-slash"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group d-flex justify-content-between">
+                    <button type="button" id="create_account" class="btn btn-link">Create Account</button>
+                    <a href="phpmailer/forgot_password.php">Forgot Password?</a>
+                    <button type="submit" class="btn btn-primary btn-flat">Login</button>
+                </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  

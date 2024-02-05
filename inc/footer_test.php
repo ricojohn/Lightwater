@@ -66,7 +66,9 @@
 <div id="preloader"></div>
 
 <!-- Vendor JS Files -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" ></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" ></script>
 <script src="assets_test/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets_test/vendor/purecounter/purecounter_vanilla.js"></script>
 <script src="assets_test/vendor/glightbox/js/glightbox.min.js"></script>
@@ -74,9 +76,14 @@
 <script src="assets_test/vendor/aos/aos.js"></script>
 <script src="assets_test/vendor/php-email-form/validate.js"></script>
 
+
 <!-- Template Main JS File -->
 <script src="assets_test/js/main.js"></script>
-
+<script>
+  $('#login-btn').on('click' , function(){
+    
+  });
+</script>
 </body>
 
 </html>
