@@ -162,6 +162,7 @@
             },
             success:function(resp){
                 if(!!resp.status && resp.status == 'success'){
+                   alert('Cart Deleted')
                    location.reload()
                 }else{
                     alert_toast("an error occured", 'error');

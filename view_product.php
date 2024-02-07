@@ -64,11 +64,18 @@
                     <!-- <div class="d-flex w-100 justify-content-center"> -->
                         <!-- <a href="./?p=checkout?product_id=<?php echo $inv[0]['id'] ?>&price=<?php echo $inv[0]['price'] ?>" class="btn btn-sm btn-flat btn">Checkout</a> -->
                     <!-- </div> -->
+                    <?php if(!isset($_SESSION['userdata']['id'])): ?>
+                        <button class="btn btn-outline-dark flex-shrink-0 ml-3" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i class="bi-cart-fill me-1"></i>
+                            Add to cart
+                        </button>
+                    <?php else: ?>
+                        <button class="btn btn-outline-dark flex-shrink-0 ml-3" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            Add to cart
+                        </button>
+                    <?php endif; ?>
                     
-                    <button class="btn btn-outline-dark flex-shrink-0 ml-3" type="submit">
-                        <i class="bi-cart-fill me-1"></i>
-                        Add to cart
-                    </button>
                 </div>
                 </form>
                 <p class="lead"><?php echo stripslashes(html_entity_decode($description)) ?></p>
