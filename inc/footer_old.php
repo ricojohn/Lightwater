@@ -173,6 +173,7 @@
     <script src="<?php echo base_url ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="<?php echo base_url ?>plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
     <script src="<?php echo base_url ?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <
     <!-- overlayScrollbars -->
     <!-- <script src="<?php echo base_url ?>plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script> -->
     <!-- AdminLTE App -->
@@ -199,4 +200,13 @@
       </div>
       <div class="drp-buttons"><span class="drp-selected"></span><button class="cancelBtn btn btn-sm btn-default" type="button">Cancel</button><button class="applyBtn btn btn-sm btn-primary" disabled="disabled" type="button">Apply</button> </div>
     </div>
-    <div class="jqvmap-label" style="display: none; left: 1093.83px; top: 394.361px;">Idaho</div>
+    <div class="jqvmap-label" style="display: none; left: 1093.83px; top: 394.361px;">Idaho</div>script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" ></script> -->
+<!-- <script src="assets_test/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+<script src="assets_test/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets_test/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets_test/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets_test/vendor/aos/aos.js"></script>
+<script src="assets_test/vendor/php-email-form/validate.js"></script>
+<script src="assets_test/js/main.js?v2.2"></script>

@@ -1,10 +1,10 @@
 <?php require_once('config.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once('inc/header.php') ?>
+<?php require_once('inc/header_old.php') ?>
 <body class="dark-mode">
 <?php require_once('inc/topBarNav.php') ?>
-<?php $page = isset($_GET['p']) ? $_GET['p'] : 'home';  ?>
+<?php $page = isset($_GET['p']) ? $_GET['p'] : 'test2';  ?>
 <?php 
     if(!file_exists($page.".php") && !is_dir($page)){
         include '404.html';
@@ -16,7 +16,7 @@
 
     }
 ?>
-<?php require_once('inc/footer.php') ?>
+<?php require_once('inc/footer_old.php') ?>
 <div class="modal fade" id="confirm_modal" role='dialog'>
     <div class="modal-dialog modal-md modal-dialog-centered" role="document">
       <div class="modal-content">

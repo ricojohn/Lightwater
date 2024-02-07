@@ -100,7 +100,7 @@
     <script src="<?php echo base_url ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="<?php echo base_url ?>plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
     <script src="<?php echo base_url ?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-
+    <script src="<?php echo base_url ?>dist/js/adminlte.js"></script>
 <!-- Template Main JS File -->
 <script src="assets_test/js/main.js?v2.2"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

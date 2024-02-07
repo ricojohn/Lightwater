@@ -16,7 +16,7 @@ if(isset($_GET['price'])){
 }
 ?>
    
-<section class="py-5">
+<section class="py-5 mt-5">
     <div class="container">
         <div class="card rounded-0">
             <div class="card-body"></div>
@@ -106,6 +106,7 @@ $(function(){
                 console.log(resp)
                 if(!!resp.status && resp.status == 'success'){
                     alert_toast("Order Successfully placed.","success")
+                    alert("Order Successfully placed.","success")
                     setTimeout(function(){
                         location.replace('./')
                     },2000)

@@ -32,23 +32,37 @@ elseif(isset($_GET['s'])){
     }
 }
 ?>
-<!-- Header-->
- <!-- Header-->
- <header class=" py-5" id="main-header">
-</header>
-<!-- Section-->
+<!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row gy-4 d-flex justify-content-center">
+        <div class="col-lg-6 order-2 order-lg-2 d-flex flex-column justify-content-center text-center">
+          <h2 data-aos="fade-up">Your Lightning Fast Delivery Partner</h2>
+          <p data-aos="fade-up" data-aos-delay="100">Facere distinctio molestiae nisi fugit tenetur repellat non praesentium nesciunt optio quis sit odio nemo quisquam. eius quos reiciendis eum vel eum voluptatem eum maiores eaque id optio ullam occaecati odio est possimus vel reprehenderit</p>
+          <div class="row gy-4 justify-content-center" data-aos="fade-up" data-aos-delay="400">
+
+          </div>
+        </div>
+
+        <!-- <div class="col-lg-5 order-1 order-lg-1 hero-img" data-aos="zoom-out"> -->
+          <!-- <img src="assets_test/img/hero-img.svg" class="img-fluid mb-3 mb-lg-0" alt=""> -->
+        <!-- </div> -->
+
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
 <section class="py-5">
     <div class="container-fluid row">
         <?php if(isset($_GET['c'])): ?>
         <div class="col-md-3 border-right mb-2 pb-3">
             <h3><b>Sub Categories</b></h3>
             <div class="list-group">
-                <a href="./?p=products&c=<?php echo $_GET['c'] ?>" class="list-group-item  text-light <?php echo !isset($_GET['s']) ? "active" : "" ?>">All</a>
+                <a href="./?p=products&c=<?php echo $_GET['c'] ?>" class="list-group-item  <?php echo !isset($_GET['s']) ? "active" : "" ?>">All</a>
                 <?php 
                 $sub_cat = $conn->query("SELECT * FROM `sub_categories` where md5(parent_id) =  '{$_GET['c']}' ");
                 while($row = $sub_cat->fetch_assoc()):
                 ?>
-                    <a href="./?p=products&c=<?php echo $_GET['c'] ?>&s=<?php echo md5($row['id']) ?>" class="list-group-item  text-light  <?php echo isset($_GET['s']) && $_GET['s'] == md5($row['id']) ? "active" : "" ?>"><?php echo $row['sub_category'] ?></a>
+                    <a href="./?p=products&c=<?php echo $_GET['c'] ?>&s=<?php echo md5($row['id']) ?>" class="list-group-item <?php echo isset($_GET['s']) && $_GET['s'] == md5($row['id']) ? "active" : "" ?>"><?php echo $row['sub_category'] ?></a>
                 <?php endwhile; ?>
             </div>
             <hr>
@@ -111,7 +125,7 @@ elseif(isset($_GET['s'])){
                         <div class="col-md-12 mb-5">
                             <div class="card product-item">
                                 <!-- Product image-->
-                                <img class="card-img-top w-100" src="<?php echo validate_image($img) ?>" loading="lazy" alt="..." style=""/>
+                                <img class="card-img-top w-100" height="250" src="<?php echo validate_image($img) ?>" loading="lazy" alt="..." style=""/>
                                 <!-- Product details-->
                                 <div class="card-body p-2">
                                     <div class="">

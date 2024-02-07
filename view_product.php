@@ -24,7 +24,7 @@
         
         <div class="row gx-4 gx-lg-5 align-items-center">
             <div class="col-md-6">
-                <img class="mb-5 mb-md-0 bg-black border-1 img-prev rounded border" loading="lazy" id="display-img" src="<?php echo validate_image($img) ?>" alt="..." />
+                <img class="mb-5 mb-md-0 bg-black border-1 img-prev rounded border" loading="lazy" id="display-img" height="500" width="600" src="<?php echo validate_image($img) ?>" alt="..." />
                 <div class="mt-2 row gx-2 gx-lg-3 row-cols-4 row-cols-md-3 row-cols-xl-4 justify-content-start">
                     <?php 
                         foreach($fileO as $k => $img):
@@ -60,12 +60,12 @@
                     }
                     ?>
                     <input type="hidden" id="count_cart" value="<?php echo $count; ?>">
-                    <input type="button" class="btn btn-outline-light flex-shrink-0" id="checkout" value="Checkout" >
+                    <input type="button" class="btn btn-outline-dark flex-shrink-0" id="checkout" value="Checkout" >
                     <!-- <div class="d-flex w-100 justify-content-center"> -->
                         <!-- <a href="./?p=checkout?product_id=<?php echo $inv[0]['id'] ?>&price=<?php echo $inv[0]['price'] ?>" class="btn btn-sm btn-flat btn">Checkout</a> -->
                     <!-- </div> -->
                     
-                    <button class="btn btn-outline-light flex-shrink-0 ml-3" type="submit">
+                    <button class="btn btn-outline-dark flex-shrink-0 ml-3" type="submit">
                         <i class="bi-cart-fill me-1"></i>
                         Add to cart
                     </button>
@@ -78,7 +78,7 @@
     </div>
 </section>
 <!-- Related items section-->
-<section class="py-5 bg-light">
+<section class="py-5 bg-secondary">
     <div class="container px-4 px-lg-5 mt-5">
         <h2 class="fw-bolder mb-4">Related products</h2>
         <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center border-top pt-2">

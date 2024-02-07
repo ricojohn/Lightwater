@@ -1,5 +1,5 @@
 
-<section class="py-5">
+<section class="py-5 mt-5">
     <div class="container">
         <div class="row">
             <div class="col d-flex justify-content-end mb-2">
@@ -30,7 +30,7 @@
                     <div class="d-flex w-100 justify-content-between  mb-2 py-2 border-bottom cart-item">
                         <div class="d-flex align-items-center col-8">
                             <span class="mr-2"><a href="javascript:void(0)" class="btn btn-sm btn-outline-danger rem_item" data-id="<?php echo $row['id'] ?>"><i class="fa fa-trash"></i></a></span>
-                            <img src="<?php echo validate_image($img) ?>" loading="lazy" class="cart-prod-img mr-2 mr-sm-2" alt="">
+                            <img src="<?php echo validate_image($img) ?>" loading="lazy" height="200" width="300" class="cart-prod-img mr-2 mr-sm-2" alt="">
                             <div>
                                 <p class="mb-1 mb-sm-1"><?php echo $row['title'] ?></p>
                                 
@@ -59,7 +59,7 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex w-100 justify-content-center">
+        <div class="d-flex w-100 justify-content-center mt-5">
             <a href="./?p=checkout" class="btn btn-sm btn-flat btn-primary">Checkout</a>
         </div>
     </div>
