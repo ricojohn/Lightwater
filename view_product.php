@@ -60,16 +60,18 @@
                     }
                     ?>
                     <input type="hidden" id="count_cart" value="<?php echo $count; ?>">
-                    <input type="button" class="btn btn-outline-dark flex-shrink-0" id="checkout" value="Checkout" >
+                    <!-- <input type="button" class="btn btn-outline-dark flex-shrink-0" id="checkout" value="Checkout" > -->
                     <!-- <div class="d-flex w-100 justify-content-center"> -->
                         <!-- <a href="./?p=checkout?product_id=<?php echo $inv[0]['id'] ?>&price=<?php echo $inv[0]['price'] ?>" class="btn btn-sm btn-flat btn">Checkout</a> -->
                     <!-- </div> -->
                     <?php if(!isset($_SESSION['userdata']['id'])): ?>
+                        <input type="button" class="btn btn-outline-dark flex-shrink-0" data-bs-toggle="modal" data-bs-target="#exampleModal" value="Checkout" >
                         <button class="btn btn-outline-dark flex-shrink-0 ml-3" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <i class="bi-cart-fill me-1"></i>
                             Add to cart
                         </button>
                     <?php else: ?>
+                        <input type="button" class="btn btn-outline-dark flex-shrink-0" id="checkout" value="Checkout" >
                         <button class="btn btn-outline-dark flex-shrink-0 ml-3" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Add to cart

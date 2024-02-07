@@ -11,7 +11,12 @@
 
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                <?php
+                $query = "SELECT * FROM clients WHERE verification_status = 'Verified'";
+                $run = $conn->query($query);
+                $row_count = $run->num_rows; 
+                ?>
+                <span data-purecounter-start="0" data-purecounter-end="<?php echo $row_count;?>" data-purecounter-duration="1" class="purecounter"></span>
                 <p>Clients</p>
               </div>
             </div><!-- End Stats Item -->
@@ -116,6 +121,7 @@
               <?php foreach($inv as $k=> $v): ?>
                 <p><b>Price: </b><?php echo $v ?></p>
                <?php endforeach; ?>
+               <button class="btn btn-primary">View</button>
             </div>
           </div><!-- End Card Item -->
           <?php endwhile; ?>

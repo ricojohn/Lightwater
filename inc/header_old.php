@@ -223,7 +223,7 @@
 								<input type="email" class="form-control  form" name="email" required placeholder="Email"> </div>
 							<div class="form-group">
 								<label for="" class="control-label">Password</label>
-								<div class="input-group">
+								<div class="input-group error_pass">
 									<input type="password" class="form-control form" name="password" required placeholder="Password">
 									<div class="input-group-append"> <span class="input-group-text password-toggle"><i class="fa fa-eye-slash"></i></span> </div>
 								</div>
@@ -387,22 +387,31 @@ $(function() {
                 alert_toast("Account successfully registered", 'success');
                 setTimeout(function () {
                     location.reload();
-                }, 2000);
+                }, 5000);
             },
             success: function (resp) {
                 if (typeof resp == 'object' && resp.status == 'success') {
                     alert_toast("Account successfully registered", 'success');
                     setTimeout(function () {
                         location.reload();
-                    }, 2000);
+                    }, 5000);
                 } else if (resp.status == 'failed' && !!resp.msg) {
                     var _err_el = $('<div>')
                     _err_el.addClass("alert alert-danger err-msg").text(resp.msg);
-                    $('[name="password"]').after(_err_el);
+                    // $('[class="error_pass"]').after(_err_el);
+                    $('.error_pass').after(_err_el);
                     end_loader();
                     setTimeout(function() {
                         $('.err-msg').remove();
-                    }, 2000);
+                    }, 5000);
+                } else if (resp.status == 'failed_email' && !!resp.msg) {
+                    var _err_el = $('<div>')
+                    _err_el.addClass("alert alert-danger err-msg").text(resp.msg);
+                    $('[name="email"]').after(_err_el);
+                    end_loader();
+                    setTimeout(function() {
+                        $('.err-msg').remove();
+                    }, 5000);
                 } else {
                     console.log(resp);
                     alert_toast("An error occurred", 'error');

@@ -323,7 +323,7 @@ Class Master extends DBConnection {
 			return $this->capture_err();
 	
 		if ($check > 0) {
-			$resp['status'] = 'failed';
+			$resp['status'] = 'failed_email';
 			$resp['msg'] = "Email already taken.";
 			return json_encode($resp);
 		}
