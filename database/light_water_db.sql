@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2024 at 01:35 PM
+-- Generation Time: Feb 07, 2024 at 02:02 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -82,6 +82,7 @@ CREATE TABLE `clients` (
   `email` varchar(250) NOT NULL,
   `password` text NOT NULL,
   `verification_code` text NOT NULL,
+  `reset_token` varchar(255) NOT NULL,
   `verification_status` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `default_delivery_address` text NOT NULL,
@@ -92,10 +93,11 @@ CREATE TABLE `clients` (
 -- Dumping data for table `clients`
 --
 
-INSERT INTO `clients` (`id`, `firstname`, `lastname`, `gender`, `contact`, `email`, `password`, `verification_code`, `verification_status`, `email_verified_at`, `default_delivery_address`, `date_created`) VALUES
-(88, 'arnold', 'songco', 'Male', '+639772607388', 'arnoldjrsongco@gmail.com', '$2y$10$jloGh4s5UNRUohOKI7n2qOZjbvPe2M0lYu8PKmPeiWVfyiyalBvx.', '169779', '', '2024-01-26 12:12:53', '', '2024-01-09 16:44:23'),
-(89, 'arnod', 'songco', 'male', '*639059424351', 'arnoldjrsongco1@gmail.com', 'songco116!', '', '', NULL, '', '2024-01-09 17:03:01'),
-(102, 'Rico John', 'Juanitas', 'Male', '+639957802471', 'rjjuanitas16@gmail.com', '9dddb6fce59e1ee4e644d8f75952072a', '526470', 'Verified', '2024-01-26 16:05:09', '24,Peppermint,Amuyong,Alfonso,Cavite    ', '2024-01-26 23:53:38');
+INSERT INTO `clients` (`id`, `firstname`, `lastname`, `gender`, `contact`, `email`, `password`, `verification_code`, `reset_token`, `verification_status`, `email_verified_at`, `default_delivery_address`, `date_created`) VALUES
+(1, 'aniah', 'songco', 'Female', '+639772607388', 'aniahcosain379@gmail.com', '159ac1c10b0cb922a26251acbd3e0e36', '102701', '77a8d10f54c142202074d09bf2cb54efad6d10803433feab91e8e53519d2b713', 'Pending', '2024-02-02 23:57:36', 'B6 L6,Kensington 6,Navarro,General Trias,Cavite', '2024-01-28 09:53:57'),
+(102, 'Rico John', 'Juanitas', 'Male', '+639957802471', 'rjjuanitas16@gmail.com', '9dddb6fce59e1ee4e644d8f75952072a', '523205', '', 'Verified', '2024-02-07 11:25:11', '24,Peppermint,Amuyong,,Cavite    ', '2024-01-26 23:53:38'),
+(103, 'arnold', 'Songco', 'Male', '+639772607388', 'arnoldjrsongco@gmail.com', '159ac1c10b0cb922a26251acbd3e0e36', '218714', 'fafe67f0a1cd44e4c41911a46b56d65e2f6b24b8e0ed5321e5578150113b3324', 'Verified', '2024-01-28 05:23:17', 'Block 6 lot 6,Kensington 6,Navarro,General Trias,Cavite', '2024-01-28 08:45:10'),
+(105, 'Rico John', 'Juanitas', 'Male', '+639957802471', 'email@email.com', '9dddb6fce59e1ee4e644d8f75952072a', '170835', '', 'Verified', '2024-02-07 10:40:24', '24,Peppermint,Amuyong,Alfonso,Cavite', '2024-02-07 18:39:23');
 
 -- --------------------------------------------------------
 
@@ -196,77 +198,39 @@ INSERT INTO `orders` (`id`, `client_id`, `delivery_address`, `payment_method`, `
 (58, 1, 'Block 6 lot 6', 'cod', 2, 25, 3, 1, '2023-12-18 14:59:55', '2023-12-18 15:00:08'),
 (59, 1, 'Block 7 lot 67', 'cod', 2, 3000, 3, 1, '2023-12-18 15:00:52', '2023-12-18 15:06:00'),
 (60, 1, 'block 8 lot 8', 'cod', 2, 75, 5, 1, '2023-12-18 15:15:49', '2023-12-18 15:18:42'),
-(61, 1, '', 'cod', 2, 50, 0, 0, '2023-12-18 16:33:12', NULL),
-(62, 1, '', 'cod', 2, 25, 0, 0, '2023-12-18 16:33:21', NULL),
-(63, 1, '', 'cod', 2, 25, 0, 0, '2023-12-18 17:49:37', NULL),
-(64, 1, '', 'cod', 2, 25, 0, 0, '2023-12-18 17:50:22', NULL),
-(65, 1, '', 'cod', 2, 25, 0, 0, '2023-12-18 17:50:41', NULL),
-(66, 1, '', 'cod', 2, 25, 0, 0, '2023-12-18 17:50:51', NULL),
-(67, 1, '', 'cod', 2, 25, 0, 0, '2023-12-18 17:52:06', NULL),
-(68, 1, '', 'cod', 2, 25, 0, 0, '2023-12-18 17:52:15', NULL),
-(69, 1, '', 'cod', 2, 25, 0, 0, '2023-12-18 17:54:12', NULL),
-(70, 1, '', 'cod', 2, 25, 0, 0, '2023-12-18 17:55:01', NULL),
-(71, 1, '', 'cod', 2, 25, 0, 0, '2023-12-18 17:55:46', NULL),
-(72, 1, '', 'cod', 2, 25, 0, 0, '2023-12-18 18:00:09', NULL),
-(73, 1, '', 'cod', 2, 25, 0, 0, '2023-12-18 18:00:53', NULL),
-(76, 1, '', 'cod', 2, 25, 0, 0, '2024-01-07 22:05:53', NULL),
-(77, 1, '', 'cod', 2, 25, 0, 0, '2024-01-07 22:05:54', NULL),
-(78, 1, '', 'cod', 2, 25, 0, 0, '2024-01-07 22:05:57', NULL),
-(79, 1, '', 'cod', 2, 25, 0, 0, '2024-01-07 22:05:59', NULL),
-(80, 1, '', 'cod', 2, 25, 0, 0, '2024-01-07 22:06:02', NULL),
-(81, 1, '', 'cod', 2, 25, 0, 0, '2024-01-07 22:06:07', NULL),
-(82, 1, '', 'cod', 2, 25, 0, 0, '2024-01-07 22:06:13', NULL),
-(83, 1, '', 'cod', 2, 25, 0, 0, '2024-01-07 22:30:25', NULL),
-(84, 1, '', 'cod', 2, 25, 0, 0, '2024-01-07 22:59:47', NULL),
-(85, 1, '', 'cod', 2, 100, 0, 0, '2024-01-07 23:06:19', NULL),
-(86, 1, '', 'cod', 2, 125, 0, 0, '2024-01-07 23:06:31', NULL),
-(87, 1, '', 'cod', 2, 125, 0, 0, '2024-01-07 23:06:42', NULL),
-(88, 1, '', 'cod', 2, 125, 0, 0, '2024-01-07 23:10:31', NULL),
-(89, 1, '', 'cod', 2, 125, 0, 0, '2024-01-07 23:10:33', NULL),
-(90, 1, '', 'cod', 2, 125, 0, 0, '2024-01-07 23:12:31', NULL),
-(91, 1, '', 'cod', 2, 125, 0, 0, '2024-01-07 23:12:32', NULL),
-(92, 1, '', 'cod', 2, 125, 0, 0, '2024-01-07 23:17:12', NULL),
-(93, 1, '', 'cod', 2, 125, 0, 0, '2024-01-07 23:17:13', NULL),
-(94, 1, '', 'cod', 2, 125, 0, 0, '2024-01-07 23:18:15', NULL),
-(95, 1, '', 'cod', 2, 125, 0, 0, '2024-01-07 23:18:16', NULL),
-(96, 1, '', 'cod', 2, 125, 0, 0, '2024-01-07 23:19:37', NULL),
-(97, 1, '', 'cod', 2, 125, 0, 0, '2024-01-07 23:20:31', NULL),
-(98, 1, '', 'cod', 2, 125, 0, 0, '2024-01-07 23:20:35', NULL),
-(99, 1, '', 'cod', 2, 125, 0, 0, '2024-01-07 23:22:47', NULL),
-(100, 1, '', 'cod', 2, 125, 0, 0, '2024-01-07 23:23:34', NULL),
-(101, 1, '', 'cod', 2, 125, 0, 0, '2024-01-07 23:26:05', NULL),
-(102, 1, '', 'cod', 2, 125, 0, 0, '2024-01-07 23:27:28', NULL),
-(103, 1, '', 'cod', 2, 25, 0, 0, '2024-01-07 23:31:52', NULL),
-(104, 1, '', 'cod', 2, 150, 0, 0, '2024-01-07 23:35:00', NULL),
-(105, 1, '', 'cod', 2, 175, 0, 0, '2024-01-07 23:39:12', NULL),
-(106, 1, '', 'cod', 2, 175, 0, 0, '2024-01-07 23:46:40', NULL),
-(107, 1, '', 'cod', 2, 25, 0, 0, '2024-01-07 23:54:23', NULL),
-(108, 1, 'block 6', 'cod', 2, 25, 0, 0, '2024-01-07 23:55:40', NULL),
-(109, 1, '', 'cod', 2, 25, 0, 0, '2024-01-07 23:59:46', NULL),
-(110, 1, '', 'cod', 2, 25, 0, 0, '2024-01-08 00:00:53', NULL),
-(111, 1, '', 'cod', 2, 25, 0, 0, '2024-01-08 00:09:29', NULL),
-(112, 1, '', 'cod', 2, 25, 0, 0, '2024-01-08 00:15:26', NULL),
-(113, 1, '', 'cod', 2, 25, 3, 1, '2024-01-08 00:15:48', '2024-01-08 00:34:46'),
-(114, 1, '', 'cod', 2, 25, 0, 0, '2024-01-08 00:51:37', NULL),
-(115, 1, '', 'cod', 2, 25, 0, 0, '2024-01-08 00:51:37', NULL),
-(116, 1, '', 'cod', 2, 25, 0, 0, '2024-01-08 00:51:53', NULL),
-(117, 1, '', 'cod', 2, 25, 0, 0, '2024-01-08 00:51:57', NULL),
-(118, 1, '', 'cod', 2, 25, 0, 0, '2024-01-08 00:52:02', NULL),
-(119, 1, '', 'cod', 2, 25, 0, 0, '2024-01-08 00:52:33', NULL),
-(120, 1, '', 'cod', 2, 25, 0, 0, '2024-01-08 00:52:39', NULL),
-(121, 1, '', 'cod', 2, 25, 0, 0, '2024-01-08 00:53:04', NULL),
-(122, 1, '', 'cod', 2, 0, 0, 0, '2024-01-08 00:53:07', NULL),
-(123, 1, '', 'cod', 2, 0, 0, 0, '2024-01-08 00:54:01', NULL),
-(124, 1, '', 'cod', 2, 0, 0, 0, '2024-01-08 00:54:09', NULL),
-(125, 1, '', 'cod', 2, 25, 0, 0, '2024-01-08 00:54:55', NULL),
-(126, 1, '', 'cod', 2, 25, 0, 0, '2024-01-08 00:59:16', NULL),
-(127, 1, '', 'cod', 2, 25, 0, 0, '2024-01-08 00:59:38', NULL),
-(128, 1, '', 'cod', 2, 25, 0, 0, '2024-01-08 01:00:01', NULL),
-(129, 1, '', 'cod', 2, 25, 0, 0, '2024-01-08 01:00:16', NULL),
-(130, 1, '', 'cod', 2, 25, 0, 0, '2024-01-08 01:00:23', NULL),
-(131, 1, '', 'cod', 2, 25, 0, 0, '2024-01-08 01:00:39', NULL),
-(132, 0, '', 'cod', 2, 25, 0, 0, '2024-01-09 15:18:04', NULL),
-(133, 0, '', 'cod', 2, 25, 0, 0, '2024-01-25 08:50:49', NULL);
+(135, 103, 'Block 6 lot 6,Kensington 6,Navarro,General Trias,Cavite', 'cod', 2, 25, 0, 0, '2024-01-28 08:49:23', NULL),
+(136, 103, 'Block 6 lot 6,Kensington 6,Navarro,General Trias,Cavite', 'cod', 2, 25, 0, 0, '2024-01-28 08:51:02', NULL),
+(137, 103, 'Block 6 lot 6,Kensington 6,Navarro,General Trias,Cavite', 'cod', 2, 25, 0, 0, '2024-01-28 09:03:07', NULL),
+(138, 103, 'Block 6 lot 6,Kensington 6,Navarro,General Trias,Cavite', 'cod', 2, 25, 0, 0, '2024-01-28 09:15:02', NULL),
+(139, 103, 'Block 6 lot 6,Kensington 6,Navarro,General Trias,Cavite', 'cod', 2, 25, 0, 0, '2024-01-28 09:16:12', NULL),
+(140, 103, 'Block 6 lot 6,Kensington 6,Navarro,General Trias,Cavite', 'cod', 2, 25, 0, 0, '2024-01-28 09:16:13', NULL),
+(141, 103, 'Block 6 lot 6,Kensington 6,Navarro,General Trias,Cavite', 'cod', 2, 25, 0, 0, '2024-01-28 09:18:43', NULL),
+(142, 103, 'Block 6 lot 6,Kensington 6,Navarro,General Trias,Cavite', 'cod', 2, 25, 0, 0, '2024-01-28 09:19:05', NULL),
+(143, 103, 'Block 6 lot 6,Kensington 6,Navarro,General Trias,Cavite', 'cod', 2, 250, 0, 1, '2024-01-28 09:19:29', '2024-01-28 10:26:17'),
+(144, 103, 'Block 6 lot 6,Kensington 6,Navarro,General Trias,Cavite', 'cod', 2, 25, 0, 0, '2024-01-28 09:19:39', NULL),
+(145, 103, 'Block 6 lot 6,Kensington 6,Navarro,General Trias,Cavite', 'cod', 2, 25, 0, 0, '2024-01-28 09:38:30', NULL),
+(146, 103, 'Block 6 lot 6,Kensington 6,Navarro,General Trias,Cavite', 'cod', 2, 25, 0, 0, '2024-01-28 09:39:13', NULL),
+(147, 103, 'Block 6 lot 6,Kensington 6,Navarro,General Trias,Cavite', 'cod', 2, 25, 0, 0, '2024-01-28 09:39:25', NULL),
+(148, 103, 'Block 6 lot 6,Kensington 6,Navarro,General Trias,Cavite', 'cod', 2, 25, 0, 0, '2024-01-28 09:40:03', NULL),
+(150, 103, 'Block 6 lot 6,Kensington 6,Navarro,General Trias,Cavite', 'cod', 2, 75, 0, 0, '2024-01-28 10:41:32', NULL),
+(151, 103, 'Block 6 lot 6,Kensington 6,Navarro,General Trias,Cavite', 'cod', 2, 25, 0, 0, '2024-01-28 13:49:48', NULL),
+(152, 103, 'Block 6 lot 6,Kensington 6,Navarro,General Trias,Cavite', 'cod', 2, 25, 0, 0, '2024-01-28 14:09:49', NULL),
+(184, 102, '24,Peppermint,Amuyong,Alfonso,Cavite    ', 'cod', 2, 75, 3, 1, '2024-01-28 22:49:52', '2024-02-03 07:12:35'),
+(185, 102, '24,Peppermint,Amuyong,Alfonso,Cavite    ', 'cod', 2, 50, 3, 1, '2024-02-03 09:49:01', '2024-02-03 09:50:37'),
+(186, 102, '24,Peppermint,Amuyong,Alfonso,Cavite    ', 'cod', 2, 50, 0, 0, '2024-02-07 18:08:16', NULL),
+(187, 0, '', 'cod', 2, 25, 0, 0, '2024-02-07 18:09:53', NULL),
+(188, 0, '', 'cod', 2, 25, 0, 0, '2024-02-07 18:09:54', NULL),
+(189, 0, '', 'cod', 2, 25, 0, 0, '2024-02-07 18:09:56', NULL),
+(190, 0, '', 'cod', 2, 25, 0, 0, '2024-02-07 18:10:01', NULL),
+(191, 102, '24,Peppermint,Amuyong,Alfonso,Cavite    ', 'cod', 2, 25, 0, 0, '2024-02-07 18:58:46', NULL),
+(192, 102, '24,Peppermint,Amuyong,Alfonso,Cavite    ', 'cod', 2, 25, 0, 0, '2024-02-07 18:59:41', NULL),
+(193, 0, '', 'cod', 2, 25, 0, 0, '2024-02-07 19:18:53', NULL),
+(194, 102, '24,Peppermint,Amuyong,Alfonso,Cavite    ', 'cod', 2, 125, 0, 0, '2024-02-07 19:24:59', NULL),
+(195, 102, '24,Peppermint,Amuyong,,Cavite    ', 'cod', 2, 25, 0, 0, '2024-02-07 19:53:43', NULL),
+(196, 102, '24,Peppermint,Amuyong,,Cavite    ', 'cod', 2, 0, 0, 0, '2024-02-07 19:55:22', NULL),
+(197, 102, '24,Peppermint,Amuyong,,Cavite    ', 'cod', 2, 0, 0, 0, '2024-02-07 19:56:15', NULL),
+(198, 102, '24,Peppermint,Amuyong,,Cavite    ', 'cod', 2, 25, 0, 0, '2024-02-07 19:56:25', NULL),
+(199, 102, '24,Peppermint,Amuyong,,Cavite    ', 'cod', 2, 25, 0, 0, '2024-02-07 19:56:45', NULL);
 
 -- --------------------------------------------------------
 
@@ -288,13 +252,13 @@ CREATE TABLE `order_list` (
 --
 
 INSERT INTO `order_list` (`id`, `order_id`, `product_id`, `quantity`, `price`, `total`) VALUES
-(37, 58, 6, 1, 25, 25),
-(38, 59, 6, 120, 25, 3000),
-(39, 60, 6, 3, 25, 75),
-(40, 61, 6, 2, 25, 50),
-(41, 62, 6, 1, 25, 25),
-(42, 65, 6, 1, 25, 25),
-(43, 68, 6, 1, 25, 25),
+(37, 58, 25, 1, 25, 25),
+(38, 59, 25, 120, 25, 3000),
+(39, 60, 25, 3, 25, 75),
+(40, 61, 26, 2, 25, 50),
+(41, 62, 26, 1, 25, 25),
+(42, 65, 26, 1, 25, 25),
+(43, 68, 26, 1, 25, 25),
 (44, 106, 16, 7, 25, 175),
 (45, 107, 25, 2, 25, 50),
 (46, 108, 25, 4, 25, 100),
@@ -307,8 +271,28 @@ INSERT INTO `order_list` (`id`, `order_id`, `product_id`, `quantity`, `price`, `
 (53, 114, 26, 1, 25, 25),
 (54, 118, 25, 1, 25, 25),
 (55, 119, 25, 2, 25, 50),
-(56, 126, 0, 0, 0, 25),
-(57, 127, 0, 0, 0, 25);
+(58, 137, 25, 1, 25, 25),
+(59, 142, 26, 1, 25, 25),
+(60, 143, 25, 10, 25, 250),
+(61, 149, 25, 2, 25, 50),
+(62, 150, 26, 3, 25, 75),
+(63, 156, 26, 1, 25, 25),
+(65, 158, 25, 1, 25, 25),
+(66, 102, 26, 3, 25, 75),
+(67, 102, 26, 3, 25, 75),
+(68, 179, 25, 1, 25, 25),
+(69, 180, 25, 1, 25, 25),
+(70, 181, 25, 1, 25, 25),
+(71, 183, 26, 5, 25, 125),
+(72, 184, 26, 3, 25, 75),
+(73, 185, 26, 2, 25, 50),
+(74, 186, 26, 2, 25, 50),
+(75, 191, 26, 1, 25, 25),
+(76, 192, 26, 1, 25, 25),
+(77, 194, 26, 5, 25, 125),
+(78, 195, 25, 1, 25, 25),
+(79, 198, 26, 1, 25, 25),
+(80, 199, 25, 1, 25, 25);
 
 -- --------------------------------------------------------
 
@@ -333,7 +317,11 @@ INSERT INTO `otp_check` (`id`, `otp`, `email`, `status`, `is_expired`, `create_a
 (5, '187604', 'rjjuanitas16@gmail.com', 'Sent', '', '2024-01-26 14:30:07'),
 (6, '187604', 'rjjuanitas16@gmail.com', 'Sent', '', '2024-01-26 14:30:07'),
 (7, '316795', 'rjjuanitas16@gmail.com', 'Sent', '', '2024-01-26 14:33:48'),
-(8, '526470', 'rjjuanitas16@gmail.com', 'Sent', '', '2024-01-26 15:58:38');
+(8, '526470', 'rjjuanitas16@gmail.com', 'Sent', '', '2024-01-26 15:58:38'),
+(9, '218714', 'arnoldjrsongco@gmail.com', 'Sent', '', '2024-01-28 00:50:10'),
+(10, '102701', 'aniahcosain379@gmail.com', 'Sent', '', '2024-01-28 01:58:57'),
+(11, '523205', 'rjjuanitas16@gmail.com', 'Sent', '', '2024-01-28 12:58:27'),
+(12, '170835', 'email@email.com', 'Sent', '', '2024-02-07 10:44:23');
 
 -- --------------------------------------------------------
 
@@ -44311,7 +44299,29 @@ INSERT INTO `sales` (`id`, `order_id`, `delivery`, `total_amount`, `date_created
 (51, 118, '', 25, '2024-01-08 00:52:02'),
 (52, 119, '', 25, '2024-01-08 00:52:33'),
 (53, 126, '', 25, '2024-01-08 00:59:16'),
-(54, 127, '', 25, '2024-01-08 00:59:38');
+(54, 127, '', 25, '2024-01-08 00:59:38'),
+(55, 137, '', 25, '2024-01-28 09:03:07'),
+(56, 142, '', 25, '2024-01-28 09:19:05'),
+(57, 143, '', 250, '2024-01-28 09:19:29'),
+(58, 149, '', 50, '2024-01-28 10:38:00'),
+(59, 150, '', 75, '2024-01-28 10:41:32'),
+(60, 156, '', 25, '2024-01-28 21:04:14'),
+(61, 157, '', 25, '2024-01-28 21:08:03'),
+(62, 158, '', 25, '2024-01-28 21:12:51'),
+(63, 102, '', 75, '2024-01-28 22:29:57'),
+(64, 179, '', 0, '2024-01-28 22:35:54'),
+(65, 180, '', 0, '2024-01-28 22:38:44'),
+(66, 181, '', 25, '2024-01-28 22:40:37'),
+(67, 183, '', 125, '2024-01-28 22:48:48'),
+(68, 184, '', 75, '2024-01-28 22:49:52'),
+(69, 185, '', 50, '2024-02-03 09:49:02'),
+(70, 186, '', 50, '2024-02-07 18:08:16'),
+(71, 191, '', 25, '2024-02-07 18:58:46'),
+(72, 192, '', 25, '2024-02-07 18:59:41'),
+(73, 194, '', 125, '2024-02-07 19:24:59'),
+(74, 195, '', 25, '2024-02-07 19:53:43'),
+(75, 198, '', 25, '2024-02-07 19:56:25'),
+(76, 199, '', 25, '2024-02-07 19:56:45');
 
 -- --------------------------------------------------------
 
@@ -44534,7 +44544,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -44546,7 +44556,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT for table `expenses`
@@ -44570,19 +44580,19 @@ ALTER TABLE `income`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
 
 --
 -- AUTO_INCREMENT for table `order_list`
 --
 ALTER TABLE `order_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `otp_check`
 --
 ALTER TABLE `otp_check`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -44618,7 +44628,7 @@ ALTER TABLE `refregion`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `stat`
