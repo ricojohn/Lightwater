@@ -202,7 +202,11 @@
     <div class="jqvmap-label" style="display: none; left: 1093.83px; top: 394.361px;">Idaho</div>
     <?php
     if(count($_GET) <= 0){
-      echo '';
+      echo '<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" ></script>
+      <script src="assets_test/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>';
     }else{
       if($_GET['p'] == 'my_account'){
         echo '';
